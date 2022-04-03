@@ -1,5 +1,11 @@
+html{
+    margin: 0px;
+    /*width: 100%;*/
+}
 body{
     background-color: rgb(230, 230, 230);
+    margin: 0px;
+    /*width: 100%;*/
     flex-direction: column;
 }
 .wall{
@@ -10,22 +16,47 @@ body{
     top: 0%;
     left: 0%;
     right: 0%;
+    margin: 0px;
     width: 100%;
-    height: 200px;
+    height: 100px;
+    justify-content: center;
 }
 h1 {
     color: white;
     text-align: center;
+    margin: 0px;
   }
 nav{
     display: flex;
     flex-direction: row;
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(23, 118, 161);
     z-index: 2;
     top: 0%;
     width: 100%;
-    height: 56px;
     position: sticky;
-    justify-items: flex-end;
+    justify-content: flex-end;
+  }
+  nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+  }
+  li a:hover{
+      background-color: rgba(4, 7, 7, 0.603);
+  }
+  li {
+    float: left;
   }
   
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .logo p{
+      color:chocolate;
+  }
