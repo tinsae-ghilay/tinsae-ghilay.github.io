@@ -13,8 +13,7 @@ html{
 }
 
 body{
-    /*background-image: url('../res/despair.jpg');*/
-    background-color: rgba(245, 254, 255, 0.26);
+    background-color: rgb(148, 148, 148);
     margin: 0px;
     font-family: nyala;
     /*width: 100%;*/
@@ -31,7 +30,7 @@ body{
 #wall{
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(to right,black,rgb(235, 174, 62), chocolate);
+    background-image: linear-gradient(to right,chocolate,rgb(238, 91, 46), chocolate);
     width: 100%;
     padding: 1rem;
     box-sizing:border-box;
@@ -40,20 +39,21 @@ body{
 footer{
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(to right,black,rgb(235, 174, 62), chocolate);
+    background-image: linear-gradient(to right,chocolate,rgb(238, 91, 46), chocolate);
     width: 100%;
     padding: 1rem;
     margin-top: 20px;
     box-sizing:border-box; 
-    height: 56px;
-    justify-content: flex-end;
-    align-content: center;
+    height: 50px;
+    justify-content: space-between;
+    align-content: space-around;
 }
 
 #wall h1{
     font-size: 60px;
     padding-left: 4rem;
     align-self: flex-end;
+    font-family: cursive;
     text-shadow: 2px 2px 4px #000000;
 }
 
@@ -103,22 +103,23 @@ nav ul{
     padding-left: 10px;
 }
 
-li a:hover {
+nav li a:hover {
     background-color: rgba(4, 7, 7, 0.5);
 }
 
-li a:selection{
+nav li a:selection{
     background-color: rgba(4, 7, 7, 0.603);     
 }
 
-li {
+nav li {
     float: left;
 }
   
-li a {
+nav li a {
     display: block;
     color: white;
     text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -135,6 +136,9 @@ li a {
     flex-wrap: wrap;
     width: 80%;
     flex-direction: row;
+}
+.container li{
+    padding: 1em;
 }
 
 .container p{
