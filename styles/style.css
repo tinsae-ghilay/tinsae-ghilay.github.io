@@ -13,7 +13,7 @@ html{
 }
 
 body{
-    background-color: rgb(149, 190, 146);
+    background-color: rgb(77, 88, 75);
     margin: 0px;
     font-family: nyala;
     /*width: 100%;*/
@@ -96,6 +96,8 @@ nav ul{
     font-style: italic;
     font-weight: bold;
     align-self: center;
+    align-items: center;
+    height: 100%;
     padding: 0px 16px;
 }
 
@@ -161,7 +163,7 @@ nav li a {
     padding: 2rem;
     margin: 1rem;
     border-radius: 1em;
-    color: rgb(0, 0, 0);
+    color: rgb(221, 221, 221);
 }
 
 .art{
