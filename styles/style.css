@@ -13,7 +13,7 @@ html{
 }
 
 body{
-    background-color: rgb(77, 88, 75);
+    background-color: whitesmoke;
     margin: 0px;
     font-family: nyala;
     /*width: 100%;*/
@@ -52,6 +52,7 @@ footer{
 #wall h1{
     font-size: 60px;
     padding-left: 4rem;
+    
     align-self: flex-end;
     font-family: cursive;
     text-shadow: 2px 2px 4px #000000;
@@ -163,7 +164,7 @@ nav li a {
     padding: 2rem;
     margin: 1rem;
     border-radius: 1em;
-    color: rgb(221, 221, 221);
+    color: rgb(43, 43, 43);
 }
 
 .art{
