@@ -168,8 +168,9 @@ nav li a {
 }
 
 .art{
-    width: fit-content;
-    height: 490px;
+    width: 100%;
+    flex-basis: 20%;
+    height: auto;
     padding: 1em;
     margin: auto;
     
@@ -200,7 +201,7 @@ nav li a {
 }
 @media screen and (max-width:700px) {
     .art{
-        width: 70%;
+        flex-basis: 90%;
         margin: 2rem;
     }
 
