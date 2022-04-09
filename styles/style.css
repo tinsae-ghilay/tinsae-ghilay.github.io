@@ -201,12 +201,12 @@ nav li a {
 @media screen and (max-width:700px) {
     .art{
         width: 70%;
-        height: auto;
         margin: 2rem;
     }
 
     .container{
         width: 100%;
+        padding: 0%;
         justify-content: space-around;
     }
     .paragraph{
