@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./styles/style.css"/> 
 <html>
 <body>
     <div id="wall">
-        <img id="logo" src="./res/icon.png"/>
-        <h1>Geez Calendar</h1>
+        <div class="group">
+            <img id="logo" src="./res/icon.png"/>
+            <h1>Geez Calendar</h1>
+        </div>
         <img style="height: 165px;margin-left: 3em;" src="./res/farmer.png"/>
     </div>
    
@@ -18,33 +21,35 @@
             <li><a href="#downloads">Downloads</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li></ul>
+            <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
     </nav>
 <div class="container">
     <img class="art" src="./res/month.png"/>
     <div class="paragraph">
+        <hr class="dark-line">
         <h3>ዓውደ አዋርሕ</h3>
         <hr class="dark-line">
         <p>ዕለት፣ ብ ቋንቋ ትግርኛ  ፣ዓውደ አዋርሕ ግእዝን ፈረንጂን ንምቑጻርን አብ ሕብረተሰብና ዝዝውተሩ 
             ሃይማኖታዊን ሃገራዊን ባዓላት ንምሕባርን፣ ከምኡ ውን ካብን ናብን ግእዝን ፈረንጂን ዕለታት ንምቕያር ክጠቅም ተባሂሉ ብውልቃዊ ተበግሶ ዝተቀመረ ናይ 
             ኣንድሮይድ ሕሳብ እዩ።</p>
         <p> ዓውደ አዋርሕ ንየማን ንጸጋም ኣንዳገንጸልካ ካብ ወርሒ ናብ ወርሒ ምቕያር ይከአል። ነብሲ ወከፍ ዕለት ምስ እትጥውቕ ከአ ናይታ ዕለት ወርሓዊ ባዓል ምርኣይ ይክኣል።</p>
-        <hr class="dark-line">
             
     </div>
 
     <div class="paragraph">
-        <div>
+        <hr class="dark-line">
         <h3>ዕለት መቐየሪ</h3>
         <hr class="dark-line">
         <p> ካብ ዝደለኻዮ ዕለት ፈረንጂ ናብ ዕለተ ግእዝ፣ ከምኡ ውን ካብ ዝደለኻዮ ዕለት ግእዝ ናብ ዕለት ፈረንጂ ንምቕያር የኽእል። ከምኡ ውን ክትቅየር ዝተደልየት ዕለት ወርሓዊ ባዓልን፣ እንተሃልዩ ከአ ዓመታዊ ባዓል የርኢ።</p>
-        </div>
-        <hr class="dark-line">
     </div>
 
     <img class="art" src="./res/converter.png"/>
     
     <img class="art" src="./res/anual.png"/>
     <div class="paragraph">
+        <hr class="dark-line">
         <h3>ባዓላትን አጽዋማትን</h3>
         <hr class="dark-line">
         <p>ዓመታዊ ባዓላትን አጽዋማትን ናይ ዘለናያ ዓመት፣ ከምኡ ውን ወርሓዊ ባዓላት ናይ ዘለናያ ወርሒ አብዚ መስኮት እዚ ይዝርዘር።
@@ -56,19 +61,15 @@
             <p>ዓመታዊ አብ ውሱን ዕለት ዝውዕሉ ባዓላት፣ ዝውዕሉሉ ዕለት ካብ ዓመት ናብ ዓመት ስለ ዘይቅየር። ናይ ዝተፈላለዩ ዓመታት ሓበሬታ አየድልዮምን እዩ።
 
             </p>
-
-        <hr class="dark-line">
             
     </div>
     <div class="paragraph">
-        <div>
+        <hr class="dark-line">
         <h3>ባሕረ ሓሳብ</h3>
         <hr class="dark-line">
         <p> ባሕረ ሓሳብ፣ ካብ ነጋሪት ክሳብ ጾመ ድሕነት ዘለዉ ፣ ካብ ዓመት ናብ ዓመት ዝቀያየር ዕለት ዘለዎም ባዓላትን አጽዋማትን፣ ዝውዕሉሉ ዕለት
              ንምቑጻር ክጠቅም፣ መበል 12 ፓትርያርክ ኦርቶዶክስ ቤተ ክርስቲያን ግብጺ ኮይኑ ኣብ ሣልሳይ ክፍለ ዘመን ዝነበረ ሊቀ ጳጳሳት ቅዱስ ዲሜጥሮስ ዘዳለዎ አገባብ አቆጻጽራ 
              ዓውደ አዋርሕ እዩ። ነዚ አገባብ ብምጥቃም ድማ አብ ዝደለኹሞ ዓመት ዝውዕሉ ባዓላት ከም ባዓል ፋሲካ፣ ባዓለ መንፈስ ቅዱስን ካልኦትን ምፍላጥ የኽእል።</p>
-        </div>
-        <hr class="dark-line">
     </div>
     <img class="art" src="./res/hasab.png"/>
 </div>
@@ -94,7 +95,8 @@
         Logo.style.visibility = "visible";
         icon.style.visibility = "hidden";
       }
-    }
+    }//after this. there need be
+    
     </script>
 </body>
 </html>
