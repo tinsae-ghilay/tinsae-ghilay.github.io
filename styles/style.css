@@ -213,7 +213,7 @@ nav #sandwich{
     background-color: chocolate;
     color: darkslategrey;
 }
-@media screen and (max-width:820px) {
+@media screen and (max-width:700px) {
     .art{
         flex-basis: 100%;
         max-height: 100%;
