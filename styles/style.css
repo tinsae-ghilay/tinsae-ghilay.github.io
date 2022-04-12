@@ -112,7 +112,7 @@ nav li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-nav .sandwich{
+nav #sandwich{
     display: none;
 }
 /* nav end*/
@@ -246,7 +246,7 @@ nav .sandwich{
         width: 56px;
     }
     nav li{display: none;}
-    nav .sandwich{
+    nav #sandwich{
         display: block;
         color: white;
         text-align: center;
