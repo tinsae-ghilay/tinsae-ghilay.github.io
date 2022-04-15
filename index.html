@@ -12,19 +12,22 @@
         <img style="height: 165px;margin-left: 3em;" src="./res/farmer.png"/>
     </div>
    
-    <nav>
+    <nav class="navi" id="menu">
         <div id="header-logo" >
             <img id="icon" src="./res/icon.png" style="height: 30px;"/>
             <h1>ዓውደ አዋርሕ </h1>
+            
         </div>
-        <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#downloads">Downloads</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li></ul>
+        <div>
             <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
+            <a class="active" href="#home">Home</a>
+            <a href="#downloads">Downloads</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        </nav>
     </nav>
 <div class="container">
     <img class="art" src="./res/month.png"/>
@@ -84,11 +87,16 @@
     //Get the button
     var icon = document.getElementById("icon");
     var Logo = document.getElementById("logo");
+    var navBar = document.getElementById("menu");
     
     // When the user scrolls up and icon is hidden, show logo
     window.onscroll = function() {scrollFunction()};
     
     function scrollFunction() {
+        if (navBar.className==="pdanav") {
+            navBar.className="navi"
+            
+        } 
       if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
         Logo.style.visibility = "hidden";
         icon.style.visibility = "Visible";
@@ -97,6 +105,14 @@
         icon.style.visibility = "hidden";
       }
     }//after this. there need be
+    function myFunction() {
+        var navBar = document.getElementById("menu");
+        if (navBar.className === "navi") {
+            navBar.className = "pdanav";
+        } else {
+            navBar.className = "navi";
+        }
+    }
     
     </script>
 </body>
