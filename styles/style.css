@@ -9,15 +9,17 @@
 
 html{
     margin: 0px;
+    background-image: url(../res/plains.jpg);
+    background-attachment: fixed;
     /*width: 100%;*/
 }
 
 body{
     margin: 0px;
     font-family: nyala;
-    background-color: #0d2e38;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%231f7500' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b89138' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23246318' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23af8730' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23302e27' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23aea72b' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2332462e' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23d5642f' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23383736' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23cb6528' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23378537' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23cc5422' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
-    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    /*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%231f7500' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b89138' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23246318' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23af8730' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23302e27' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23aea72b' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2332462e' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23d5642f' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23383736' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23cb6528' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23378537' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23cc5422' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    */
     background-size: cover;
     /*width: 100%;*/
 }
@@ -160,8 +162,13 @@ h3{
 .container h3{
     margin: 0;
     padding: 0.5em;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 4px #000000;
+    color: #0091ff;
+    text-shadow: 1px 0 0 rgb(255, 255, 255), -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+em{
+    color: #ff4800;
+    text-decoration: underline;
+    
 }
 
 #logo{
@@ -190,10 +197,11 @@ h3{
 .art{
     max-width: 25%;
     flex-basis: 20%;
-    align-self: center; 
-    height: auto;
+    align-self: center;
     padding: 1em;
-    margin: 1em;
+    height: auto;
+    opacity: 80%;
+    margin: 1%;
     
 }
 
@@ -202,7 +210,7 @@ h3{
     clear:both;
     display:block;
     width: 100%;               
-    background-color:#ff5405;
+    background-color:#ff4800;
     height: 1px;
     margin: 0;
 }
