@@ -148,66 +148,68 @@
         </div>
         </nav>
     </nav>
-<script>
-    var dateToday = GeezDate.now();
-    var today=dateToday.format();
-    var m=dateToday.month;
-    var y=dateToday.year;
-    var calendarMonth=GeezDate.of(y,m,1);
-    //calendarMonth.setLocale("iso");
-</script>
-<h4>ሎሚ ዕለት  <script> document.write(today) </script> እዩ። </h4>
-<script>
-    var calendar=new Calendar(dateToday.month);
-</script>   
-<div class="navButtons">
-    <button id="back" >&lt;</button>
-    <h3 id="title"></h3>
-    <button id="next" >&gt;</button>
-</div>
-<div id="cal">
-        <script itemid="calendar">
-            var table=document.getElementById("cal");
-            table.innerHTML = calendar.showMonth(calendarMonth);
-       </script>
-       </div>
-<script>
-    var next=document.getElementById("next");
-    next.addEventListener("click", nextMonth);
-    var back=document.getElementById("back");
-    back.addEventListener("click", prevMonth);
-    var title=document.getElementById("title");
-    title.addEventListener("click",ressetCalendar);
+    <div class="container">
+        <script>
+            var dateToday = GeezDate.now();
+            var today=dateToday.format();
+            var m=dateToday.month;
+            var y=dateToday.year;
+            var calendarMonth=GeezDate.of(y,m,1);
+            //calendarMonth.setLocale("iso");
+        </script>
+        <h4>ሎሚ ዕለት  <script> document.write(today) </script> እዩ። </h4>
+        <script>
+            var calendar=new Calendar(dateToday.month);
+        </script>   
+        <div class="navButtons">
+            <button id="back" >&lt;</button>
+            <h3 id="title"></h3>
+            <button id="next" >&gt;</button>
+        </div>
+        <div id="cal">
+                <script itemid="calendar">
+                    var table=document.getElementById("cal");
+                    table.innerHTML = calendar.showMonth(calendarMonth);
+            </script>
+            </div>
+        <script>
+            var next=document.getElementById("next");
+            next.addEventListener("click", nextMonth);
+            var back=document.getElementById("back");
+            back.addEventListener("click", prevMonth);
+            var title=document.getElementById("title");
+            title.addEventListener("click",ressetCalendar);
 
-    function nextMonth(){
-        if(m<13){
-            m=m+1;
-        }else{
-            m=1;
-            y=y+1;
-        }
-        calendarMonth=GeezDate.of(y,m,1)
-        table.innerHTML = calendar.showMonth(calendarMonth)
-    }
+            function nextMonth(){
+                if(m<13){
+                    m=m+1;
+                }else{
+                    m=1;
+                    y=y+1;
+                }
+                calendarMonth=GeezDate.of(y,m,1)
+                table.innerHTML = calendar.showMonth(calendarMonth)
+            }
 
-    function prevMonth(){
-        if(m>1){
-            m=m-1;
-        }else{
-            m=13;
-            y=y-1;
-        }
-        calendarMonth=GeezDate.of(y,m,1)
-        table.innerHTML = calendar.showMonth(calendarMonth)
-    }
+            function prevMonth(){
+                if(m>1){
+                    m=m-1;
+                }else{
+                    m=13;
+                    y=y-1;
+                }
+                calendarMonth=GeezDate.of(y,m,1)
+                table.innerHTML = calendar.showMonth(calendarMonth)
+            }
 
-    function ressetCalendar(){
-        y=dateToday.year;
-        m=dateToday.month;
-        calendarMonth=GeezDate.of(y,m,1)
-        table.innerHTML = calendar.showMonth(calendarMonth)
-    }
-</script>
+            function ressetCalendar(){
+                y=dateToday.year;
+                m=dateToday.month;
+                calendarMonth=GeezDate.of(y,m,1)
+                table.innerHTML = calendar.showMonth(calendarMonth)
+            }
+        </script>
+    </div>
 </body>
 <footer>
     <img src="./res//farmer.png"/>
