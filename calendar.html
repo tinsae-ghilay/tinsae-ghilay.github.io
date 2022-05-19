@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/style.css"/> 
+<head>
+    <meta charset="UTF-8">
+    <title>Trial</title>
+    <script src="script.js">
+    </script>
+    <script src="calendar.js">
+    </script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: lightgray;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        h1,p {
+            color: black;
+            margin-left: 40px;
+        }
+        h3{
+            width: 100%;
+            text-align: center;
+            color: white;
+            margin: 0px;
+            padding: 10px;
+            border-radius: 3rem;
+        }
+        #title{
+            /*background-color: rgba(92, 177, 247, 0.555);*/
+            width: 300px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        #title:hover{
+            color: steelblue
+        }
+        table {
+            width: 100%;
+            max-width: 500px;
+            min-width: 300px;
+            border-collapse: collapse;
+            text-align: center;
+            align-self: center;
+            table-layout: fixed;
+            border-radius: 0 0 15px 15px;
+        }
+        th {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 100%;
+            background-color: rgb(49, 38, 38);
+            color: rgb(255, 255, 255);
+            font-size: large;
+        }
+        td{
+            /*border: 1px solid rgb(177, 177, 177);*/
+            height: 56px;
+            width: 56px;
+            border-radius: 10%;
+        }
+
+        td:first-child:not(.month-offset){ color: orangered }
+        td:last-child:not(.month-offset){ color: orangered }
+        th:last-child, th:first-child{ color: orangered;}
+
+        td:hover{
+            color: white;
+            background-color: steelblue;
+        }
+        .today{
+            color: white;
+            background-color: steelblue;
+            font-size: large;
+            font-weight: bolder;
+        }
+        .month-offset{
+            color: rgb(153, 152, 152);
+
+        }
+        .month-offset:hover{
+            background-color: rgba(83, 83, 83, 0.253);
+        }
+        .today:hover{
+            background-color: orangered;
+            color: steelblue;
+        }
+        .navButtons{
+            width: 100%;
+            max-width: 500px;
+            min-width: 300px;
+            background-color: rgb(49, 38, 38);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-height: fit-content;
+            border-radius: 1rem 1rem 0px 0px;
+            padding: 0px;
+        }
+        button{
+            padding-left: 30px;
+            padding-right: 30px;
+            height: 2rem;
+            background-color: rgb(49, 38, 38);
+            border-radius: 0.5em;
+            color: white;
+            border: none;
+            margin: 1em;
+            font-size: large;
+        }
+        button:hover{
+            color:steelblue
+        }
+        </style>
+</head>
+<body>
+
+<div id="wall">
+        <div class="group">
+            <img id="logo" src="./res/icon.png"/>
+            <h1>Geez Calendar</h1>
+        </div>
+        <img style="height: 165px;width:auto; margin-left: 3em;" src="./res/farmer.png"/>
+    </div>
+   
+    <nav class="navi" id="menu">
+        <div id="header-logo" >
+            <img id="icon" src="./res/icon.png" style="height: 30px;"/>
+            <h1>ግእዝ ዓውደ አዋርሕ </h1>
+            
+        </div>
+        <div>
+            <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
+            <a href="index.html">Home</a>
+            <a class="active" href="calendar.html">Calendar</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        </nav>
+    </nav>
+<script>
+    var dateToday = GeezDate.now();
+    var today=dateToday.format();
+    var m=dateToday.month;
+    var y=dateToday.year;
+    var calendarMonth=GeezDate.of(y,m,1);
+    //calendarMonth.setLocale("iso");
+</script>
+<h4>ሎሚ ዕለት  <script> document.write(today) </script> እዩ። </h4>
+<script>
+    var calendar=new Calendar(dateToday.month);
+</script>   
+<div class="navButtons">
+    <button id="back" >&lt;</button>
+    <h3 id="title"></h3>
+    <button id="next" >&gt;</button>
+</div>
+<div id="cal">
+        <script itemid="calendar">
+            var table=document.getElementById("cal");
+            table.innerHTML = calendar.showMonth(calendarMonth);
+       </script>
+       </div>
+<script>
+    var next=document.getElementById("next");
+    next.addEventListener("click", nextMonth);
+    var back=document.getElementById("back");
+    back.addEventListener("click", prevMonth);
+    var title=document.getElementById("title");
+    title.addEventListener("click",ressetCalendar);
+
+    function nextMonth(){
+        if(m<13){
+            m=m+1;
+        }else{
+            m=1;
+            y=y+1;
+        }
+        calendarMonth=GeezDate.of(y,m,1)
+        table.innerHTML = calendar.showMonth(calendarMonth)
+    }
+
+    function prevMonth(){
+        if(m>1){
+            m=m-1;
+        }else{
+            m=13;
+            y=y-1;
+        }
+        calendarMonth=GeezDate.of(y,m,1)
+        table.innerHTML = calendar.showMonth(calendarMonth)
+    }
+
+    function ressetCalendar(){
+        y=dateToday.year;
+        m=dateToday.month;
+        calendarMonth=GeezDate.of(y,m,1)
+        table.innerHTML = calendar.showMonth(calendarMonth)
+    }
+</script>
+</body>
+<footer>
+    <img src="./res//farmer.png"/>
+    <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: ivory; align-self: center;">Copyright&copy; tinsae ghilay</p>
+</footer>
+
+<!-- script from w3schools-->
+<script>
+    //Get the button
+    var icon = document.getElementById("icon");
+    var Logo = document.getElementById("logo");
+    var navBar = document.getElementById("menu");
+    
+    // When the user scrolls up and icon is hidden, show logo
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+        if (navBar.className==="pdanav") {
+            navBar.className="navi"
+            
+        } 
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        Logo.style.visibility = "hidden";
+        icon.style.visibility = "Visible";
+      } else {
+        Logo.style.visibility = "visible";
+        icon.style.visibility = "hidden";
+      }
+    }
+    function myFunction() {
+        var navBar = document.getElementById("menu");
+        if (navBar.className === "navi") {
+            navBar.className = "pdanav";
+        } else {
+            navBar.className = "navi";
+        }
+    }
+    
+    </script>
+</html>
