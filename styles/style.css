@@ -160,6 +160,9 @@ h3{
     line-height: 2rem; 
     font-size: larger; 
 }
+.container h4{
+    text-align: center;
+}
 .container h3{
     margin: 0;
     padding: 0.5em;
@@ -218,17 +221,6 @@ em{
   
 .logo{
     float: left;
-}
-.paragraph button{
-    background-color: rgb(23, 118, 161);
-    justify-self: flex-end;
-    border-radius: 1em;
-    box-sizing: content-box;
-    padding: 1em;
-}
-.paragraph button:hover{
-    background-color: chocolate;
-    color: darkslategrey;
 }
 @media screen and (max-width:750px) {
     .art{
