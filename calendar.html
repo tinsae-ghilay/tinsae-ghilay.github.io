@@ -62,7 +62,7 @@
         <script>
             var calendarCard=document.getElementById("calendar");
             //table.innerHTML = calendar.showMonth(calendarMonth);
-            calendarCard.innerHTML=calendar.showMonthInGrid(calendarMonth);
+            calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             var next=document.getElementById("next");
             next.addEventListener("click", nextMonth);
             var back=document.getElementById("back");
@@ -79,7 +79,7 @@
                 }
                 calendarMonth=GeezDate.of(y,m,1)
                 //table.innerHTML = calendar.showMonth(calendarMonth)
-                calendarCard.innerHTML=calendar.showMonthInGrid(calendarMonth);
+                calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
             function prevMonth(){
@@ -91,7 +91,7 @@
                 }
                 calendarMonth=GeezDate.of(y,m,1)
                 //table.innerHTML = calendar.showMonth(calendarMonth)
-                calendarCard.innerHTML=calendar.showMonthInGrid(calendarMonth);
+                calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
             function ressetCalendar(){
@@ -99,7 +99,7 @@
                 m=dateToday.month;
                 calendarMonth=GeezDate.of(y,m,1)
                 //table.innerHTML = calendar.showMonth(calendarMonth)
-                calendarCard.innerHTML=calendar.showMonthInGrid(calendarMonth);
+                calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
         </script>
     <!-- calendar -->
