@@ -20,7 +20,7 @@
     <nav class="navi" id="menu">
         <div id="header-logo" >
             <img id="icon" src="./res/icon.png" style="height: 30px;"/>
-            <h1>ግእዝ ዓውደ አዋርሕ </h1>
+            <h1>ግእዝ ዓውደ አዋርሕ</h1>
             
         </div>
         <div>
@@ -44,24 +44,27 @@
             var calendarMonth=GeezDate.of(y,m,1);
             //calendarMonth.setLocale("iso");
         </script>
-        <h3>ዕለት፣ <script> document.write(today) </script> </h3>
+        <h3 >ናይ ሎሚ ዕለት   <script> document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+" "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script> </h3>
         <script>
             var calendar=new Calendar(dateToday.month);
         </script>   
         <div id="calendarNav" class="navButtons">
-            <p id="back">
-                <i class="fa-solid fa-chevron-left"></i>
-            </p>
-            <h4 id="title"></h4>
-            <p id="next">
-                <i class="fa-solid fa-angle-right"></i>
-            </p>
+            <div class="buttons-banner">
+                <p id="back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </p>
+                <h4 id="title"></h4>
+                <p id="next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </p>
+            </div>
         </div>
         <div id="calendar">
         </div>
         <script>
+            var rot=0;
+            var flip=360;
             var calendarCard=document.getElementById("calendar");
-            //table.innerHTML = calendar.showMonth(calendarMonth);
             calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             var next=document.getElementById("next");
             next.addEventListener("click", nextMonth);
@@ -77,8 +80,7 @@
                     m=1;
                     y=y+1;
                 }
-                calendarMonth=GeezDate.of(y,m,1)
-                //table.innerHTML = calendar.showMonth(calendarMonth)
+                calendarMonth=GeezDate.of(y,m,1);
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
@@ -89,16 +91,14 @@
                     m=13;
                     y=y-1;
                 }
-                calendarMonth=GeezDate.of(y,m,1)
-                //table.innerHTML = calendar.showMonth(calendarMonth)
+                calendarMonth=GeezDate.of(y,m,1);
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
             function ressetCalendar(){
                 y=dateToday.year;
                 m=dateToday.month;
-                calendarMonth=GeezDate.of(y,m,1)
-                //table.innerHTML = calendar.showMonth(calendarMonth)
+                calendarMonth=GeezDate.of(y,m,1);
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
         </script>
