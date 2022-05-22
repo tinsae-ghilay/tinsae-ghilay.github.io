@@ -22,13 +22,15 @@
         var m=dateToday.month;
         var y=dateToday.year;
         var calendarMonth=GeezDate.of(y,m,1);
-        //calendarMonth = GeezDate.now();
+        // !!!! uncomment below line if you want text in English.
         //calendarMonth.setLocale("iso");
     </script>
     <nav class="navi" id="menu">
         <div id="header-logo" >
             <img id="icon" src="./res/icon.png" style="height: 30px;"/>
-            <h1><script> document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
+            <h1><script> 
+            // this line writes current date on nav-bar.
+            document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
                         " "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
             
         </div>
@@ -48,7 +50,10 @@
         <script>
             var calendar=new Calendar(dateToday.month);
         </script> 
+        <!-- top banner with image relative to month -->
         <div id="calendarNav" class="navButtons">
+
+            <!-- extra button to resset calendar card to current month -->
             <div id="now" onclick="ressetCalendar()" ><i class="fa fa-calendar-day fa-2x"></i></div>
             <div class="buttons-banner">
                 <p id="back"><span class="fa fa-chevron-left fa-2x"></span></p>
@@ -56,30 +61,53 @@
                 <p id="next"><span class="fa fa-chevron-right fa-2x"></span></p>
             </div>
         </div>
+
+        <!-- Calendar table starts here -->
         <div id="calendar">
         </div>
+        <!-- calendar card ends here -->
+
+
         <script>
-            var calendarCard=document.getElementById("calendar");
-            calendarCard.innerHTML=calendar.showMonth(calendarMonth);
-            var next=document.getElementById("next");
+        // setting Calendar data starts here.
+
+            // declaring the calendar card that will hold the dates
+            var calendarCard=document.getElementById("calendar"); 
+
+            // setting html data dynamically from javascript 
+            calendarCard.innerHTML=calendar.showMonth(calendarMonth); 
+
+            // next button
+            var next=document.getElementById("next"); 
             next.addEventListener("click", nextMonth);
+
+            // back button
             var back=document.getElementById("back");
             back.addEventListener("click", prevMonth);
-            var title=document.getElementById("title");
+
+            // title of calendar card. where the text month, year are displayed.
+            var title=document.getElementById("title"); 
             title.addEventListener("click",ressetCalendar);
 
+            // navigating forward when next button is clicked. 
             function nextMonth(){
                 if(m<13){
+                    // normally , add one month when button clicked.
                     m=m+1;
                 }else{
+                    // but if pagumie is reached (? last month of year reached)
+                    // start from september.
                     m=1;
+                    //and increase year by one.
                     y=y+1;
                 }
+                // renew Calendar month with new params.
                 calendarMonth=GeezDate.of(y,m,1);
+                // finally  set text to card.
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
-            function prevMonth(){
+            function prevMonth(){ // nsvigsting to previous. except subtracting the numbers.
                 if(m>1){
                     m=m-1;
                 }else{
@@ -90,7 +118,8 @@
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
 
-            function ressetCalendar(){
+            function ressetCalendar(){// resset to current calendar month.
+                //y= year, m=month, day is always set to begining of month i.e. 1.
                 y=dateToday.year;
                 m=dateToday.month;
                 calendarMonth=GeezDate.of(y,m,1);
