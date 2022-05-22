@@ -25,28 +25,23 @@ class GeezDate{
         return this.dayOfMonth+", "+this.getMonth()+", "+this.year;
     }
 
-    // Date arthimatic( plus and minus )
-    // for subtuction we have to use negative value.
+    /** 
+    * Date arthimatic( plus and minus )
+    * for subtruction we have to use negative value.
+    * @param {Number}days
+    * @returns GeezDate
+    */
     plusDays(days){
         var jdn=this.julianDay+days;
         return GeezDate.jdnToGeez(jdn);
     }
-    plusMonths(months){
-        var pagumies=Math.floor((this.month+months)/13);
-        var total=this.month+months;
-        var normalMonths=total-pagumies;
-        var interval=(normalMonths*30)+Math.floor(pagumies*5.25);
-        var jdn=this.julianDay+interval;
-        var newDate = this.jdnToGeez(jdn);
 
-        /** update values  */
-        this.dayOfMonth=newDate.dayOfMonth;
-        this.month=newDate.month;
-        this.year=newDate.year;
-        this.dayOfYear=newDate.dayOfYear;
-        this.julianDay=newDate.julianDay;
-        //return GeezDate.of(this.year,(this.month+months),this.dayOfMonth)
-    }
+    /** 
+     *year arthimatic( plus and minus )
+    * for subtruction we have to use negative value.
+    * @param {Number}years
+    * @returns GeezDate
+    */
     plusYears(years){
         return GeezDate((this.year+years),month,this.dayOfMonth);
     }
@@ -77,29 +72,52 @@ class GeezDate{
             return semun;
         }
     }
-    setLocale(locale){
-        this.locale=locale;
-    }
+    /** 
+    *setters for year,month, day and locale if need be
+    */
+    setLocale(locale){ this.locale=locale; }
+    setDayOfMonth(day){ return GeezDate.of(this.year, this.month, day) }
+    setMonth(month){ return GeezDate.of(this.year, month, this.dayOfMonth) }
+    setYear(year){ return GeezDate.of(year, this.month, this.dayOfMonth) }
 
+    /**
+     * 
+     * @param {Number} year 
+     * @param {Number} month 
+     * @param {Number} dayOfMonth 
+     * @returns Julian_day_number
+     */
     static geezToJdn(year,month,dayOfMonth){
         return (( jOffset + 365 )+ Math.imul(365 , ( year - 1 ))+( year/4 )+ Math.imul(30 , month)+ dayOfMonth - 31)
     }
 
-    /*static now(){
-        var localDate=new Date()
-        var julianDay = Math.floor((localDate / 86400000) - (localDate.getTimezoneOffset()/1440) + 2440587.5);
-        return this.jdnToGeez(julianDay);
-    }*/
+    /**
+     * Current date in geez from Unix.time
+     * @returns GeezDate
+     */
     static now(){
-        var epoch=2440588;
-        var time=Date.now()/86400000;
+        var epoch=2440588;// Julian day number of january 1,1970.-- because it is 0000000000 in unix time.
+        var time=Date.now()/86400000; // elapsed days from unix.time epoch.
         return this.jdnToGeez(time+epoch);
     }
 
+    /**
+     * 
+     * @param {Date} date 
+     * @returns GeezDate.
+     */
     static from(date = Date){
         var julianDay = Math.floor((date / 86400000) - (date.getTimezoneOffset()/1440) + 2440587.5);
         return this.jdnToGeez(julianDay);
     }
+
+    /**
+     * gets GeezDate class by passing day, month and year
+     * @param {Number} year 
+     * @param {Number} month 
+     * @param {Number} dayOfMonth 
+     * @returns GeezDate
+     */
     static of(year, month, dayOfMonth){ // validate function is below!!!
         validate(year,month,dayOfMonth);//this Validates the parameters as valid dates.
         var dayOfYear=Math.imul(30,(month-1))+dayOfMonth;
@@ -108,12 +126,16 @@ class GeezDate{
     }
 
 }
-var date=GeezDate.now().plusMonths(1);
 console.log(GeezDate.now());// without parameter.
 console.log(GeezDate.from(new Date()))// with Date() as parameter
 console.log(GeezDate.of(2015,13,4)); // with Geez dates as parameters
-console.log("Day today is "+date.dayOfWeek())
 
+/**
+ * validates Geez Date
+ * @param {Number} year 
+ * @param {Number} month 
+ * @param {Number} dayOfMonth 
+ */
 function validate(year, month, dayOfMonth){
     var  areNumbers=(Number.isInteger(year)) && (Number.isInteger(month)) && (Number.isInteger(dayOfMonth));
     var areGreaterThanZero=+year>0 && +month>0 && +dayOfMonth>0;
@@ -121,7 +143,7 @@ function validate(year, month, dayOfMonth){
     var isValidDate=validateDate(year,month,dayOfMonth)
     var isValid =areNumbers && areGreaterThanZero && isValidMonth && isValidDate;
     if(!isValid){
-        throw new EvalError('Unrepresentable date parameters');
+        throw new EvalError('Unrepresentable date parameters'+year+", "+month+", "+dayOfMonth);
     }
    
 }
