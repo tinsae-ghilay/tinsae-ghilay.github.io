@@ -96,13 +96,13 @@ class GeezDate{
      * @returns GeezDate
      */
     static now(){
-        var epoch=2440588;// Julian day number of january 1,1970.-- because it is 0000000000 in unix time.
-        var time=Date.now()/86400000; // elapsed days from unix.time epoch.
-        return this.jdnToGeez(time+epoch);
+        var epoch=2440588;// Julian day number of january 1,1970.-- because UNIX time starts from that date.
+        var res=(Date.now())/86400000; // elapsed days since start of UNIX time.
+        return this.jdnToGeez(res+epoch);// Julian day number now = Julian day at EPOCH+Elapsed days in UNIX time
     }
 
     /**
-     * 
+     * directly converts Gregorian Date object ( ፈረንጂ )  to GeezDate object
      * @param {Date} date 
      * @returns GeezDate.
      */
@@ -112,20 +112,30 @@ class GeezDate{
     }
 
     /**
-     * gets GeezDate class by passing day, month and year
+     * gets GeezDate Object from dayOfMonth, month and year of a given Geez date. 
+     * eg. if we want a GeezDate object of September 2, 1961 :::-  we would say GeezDate.of(1961,1,2);
      * @param {Number} year 
      * @param {Number} month 
      * @param {Number} dayOfMonth 
      * @returns GeezDate
+     * @throws RangeError
      */
-    static of(year, month, dayOfMonth){ // validate function is below!!!
-        validate(year,month,dayOfMonth);//this Validates the parameters as valid dates.
-        var dayOfYear=Math.imul(30,(month-1))+dayOfMonth;
-        var jdn=this.geezToJdn(year,month,dayOfMonth);
-        return new GeezDate(year,month,dayOfMonth,dayOfYear,jdn);
+    static of(year, month, dayOfMonth){ // Validate the given Dates. eg. GeezDate.of(1961,1,31) would return an Exception.
+        try {
+            if(validate(year,month,dayOfMonth));
+            var dayOfYear=Math.imul(30,(month-1))+dayOfMonth;
+            var jdn=this.geezToJdn(year,month,dayOfMonth);
+            return new GeezDate(year,month,dayOfMonth,dayOfYear,jdn);
+        } catch (error) {
+            console.log(error)
+        }
+        //  validate(year,month,dayOfMonth);//this Validates the parameters as valid dates.
+        
     }
 
 }
+// test output.
+
 console.log(GeezDate.now());// without parameter.
 console.log(GeezDate.from(new Date()))// with Date() as parameter
 console.log(GeezDate.of(2015,13,4)); // with Geez dates as parameters
@@ -142,9 +152,11 @@ function validate(year, month, dayOfMonth){
     var isValidMonth=month<=13;
     var isValidDate=validateDate(year,month,dayOfMonth)
     var isValid =areNumbers && areGreaterThanZero && isValidMonth && isValidDate;
+
     if(!isValid){
-        throw new EvalError('Unrepresentable date parameters'+year+", "+month+", "+dayOfMonth);
+        throw new RangeError('Unrepresentable date parameters '+year+", "+month+", "+dayOfMonth);
     }
+    return isValid;
    
 }
 
