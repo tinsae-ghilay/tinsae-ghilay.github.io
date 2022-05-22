@@ -16,16 +16,25 @@
         </div>
         <img style="height: 165px;width:auto; margin-left: 3em;" src="./res/farmer.png"/>
     </div>
-   
+    <script>
+        var dateToday = GeezDate.now();
+        var today=dateToday.format();
+        var m=dateToday.month;
+        var y=dateToday.year;
+        var calendarMonth=GeezDate.of(y,m,1);
+        //calendarMonth = GeezDate.now();
+        //calendarMonth.setLocale("iso");
+    </script>
     <nav class="navi" id="menu">
         <div id="header-logo" >
             <img id="icon" src="./res/icon.png" style="height: 30px;"/>
-            <h1>ግእዝ ዓውደ አዋርሕ</h1>
+            <h1><script> document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
+                        " "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
             
         </div>
         <div>
             <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa fa-bars"></i>
               </a>
             <a href="index.html">Home</a>
             <a class="active" href="calendar.html">Calendar</a>
@@ -37,33 +46,19 @@
 <div class="container">
     <div class="calendar-container">
         <script>
-            var dateToday = GeezDate.now();
-            var today=dateToday.format();
-            var m=dateToday.month;
-            var y=dateToday.year;
-            var calendarMonth=GeezDate.of(y,m,1);
-            //calendarMonth.setLocale("iso");
-        </script>
-        <h3 >ናይ ሎሚ ዕለት   <script> document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+" "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script> </h3>
-        <script>
             var calendar=new Calendar(dateToday.month);
-        </script>   
+        </script> 
         <div id="calendarNav" class="navButtons">
+            <div id="now" onclick="ressetCalendar()" ><i class="fa fa-calendar-day fa-2x"></i></div>
             <div class="buttons-banner">
-                <p id="back">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </p>
+                <p id="back"><span class="fa fa-chevron-left fa-2x"></span></p>
                 <h4 id="title"></h4>
-                <p id="next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </p>
+                <p id="next"><span class="fa fa-chevron-right fa-2x"></span></p>
             </div>
         </div>
         <div id="calendar">
         </div>
         <script>
-            var rot=0;
-            var flip=360;
             var calendarCard=document.getElementById("calendar");
             calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             var next=document.getElementById("next");
@@ -102,9 +97,7 @@
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
             }
         </script>
-    <!-- calendar -->
     </div>
-
 </div>
 <footer>
     <img src="./res//farmer.png"/>
