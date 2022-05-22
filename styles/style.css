@@ -222,6 +222,10 @@ em{
 .logo{
     float: left;
 }
+
+.latin{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 @media screen and (max-width:750px) {
     .art{
         max-width: 80%;
