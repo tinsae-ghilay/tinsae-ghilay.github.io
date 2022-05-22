@@ -32,7 +32,20 @@ class GeezDate{
         return GeezDate.jdnToGeez(jdn);
     }
     plusMonths(months){
-        return GeezDate.of(this.year,(this.month+months),this.dayOfMonth)
+        var pagumies=Math.floor((this.month+months)/13);
+        var total=this.month+months;
+        var normalMonths=total-pagumies;
+        var interval=(normalMonths*30)+Math.floor(pagumies*5.25);
+        var jdn=this.julianDay+interval;
+        var newDate = this.jdnToGeez(jdn);
+
+        /** update values  */
+        this.dayOfMonth=newDate.dayOfMonth;
+        this.month=newDate.month;
+        this.year=newDate.year;
+        this.dayOfYear=newDate.dayOfYear;
+        this.julianDay=newDate.julianDay;
+        //return GeezDate.of(this.year,(this.month+months),this.dayOfMonth)
     }
     plusYears(years){
         return GeezDate((this.year+years),month,this.dayOfMonth);
