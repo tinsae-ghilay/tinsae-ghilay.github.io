@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./styles/style.css"/> 
+<script src="./script.js"></script>
 <html>
 <body>
     <div id="wall">
@@ -14,7 +15,10 @@
     <nav class="navi" id="menu">
         <div id="header-logo" >
             <img id="icon" src="./res/icon.png" style="height: 30px;"/>
-            <h1>ግእዝ ዓውደ አዋርሕ </h1>
+            <h1><script> 
+            var dateToday=GeezDate.now();
+            document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
+                " "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
             
         </div>
         <div>
