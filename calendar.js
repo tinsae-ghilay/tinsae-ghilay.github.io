@@ -12,12 +12,13 @@ class Calendar{
         //console.log("date before reduction "+start.format());
         // console.log("firstDay is "+firstDay);
         var displayedMonth=start.getMonth();
+        //start=start.setDayOfMonth(1);
         start=start.plusDays(-firstDay);// back to day one
         //console.log("start date is "+start.format());
         //start=start.plusDays(+start.dayOfWeek());
         document.getElementById("title").innerHTML=displayedMonth+", <span class=\"latin\">"+thisYear+"</span>";
         var bar=document.getElementById("calendarNav");
-        bar.style.background="linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,1)),url('./res/"+thisMonth+".webp')";
+        bar.style.background="url('./res/"+thisMonth+".webp')";
         bar.style.backgroundPosition="center";
         bar.style.backgroundSize="cover";
         //html+="<h3 style=\"align-text: center; width=\"100%\"\">"+displayedMonth+"</h3>";
