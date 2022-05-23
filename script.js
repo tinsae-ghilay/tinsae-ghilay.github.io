@@ -12,15 +12,6 @@ class GeezDate{
         this.dayOfYear=dayOfYear;
         this.julianDay=julianDay;
     }
-    static jdnToGeez (jdn) { // correct multiplication in javascript=Math.imul(number,number) is used instead of number*number.
-        var r = (jdn - jOffset) % 1461; 
-        var n = r%365 + Math.imul/*here*/(365,(r/1460));
-        var year =Math.floor(Math.imul/*here*/(4 , ((jdn - jOffset) / 1461)) + r / 365 - r / 1460);
-        var month = Math.floor(n/30 + 1);
-        var dayOfMonth = Math.floor(n%30 + 1);
-        var dayOfYear = Math.floor((Math.imul/*here*/((month - 1) , 30)) + dayOfMonth);
-        return new GeezDate(year, month, dayOfMonth, dayOfYear,jdn);
-    }
     format(){// to convert a GeezDate to String.
         return this.dayOfMonth+", "+this.getMonth()+", "+this.year;
     }
@@ -72,13 +63,44 @@ class GeezDate{
             return semun;
         }
     }
+    getMaxDate(){
+        if(this.month!=13){
+            return 30;
+        }else{
+            if(this.year%4==3){
+                return 6;
+            }else{
+                return 5;
+            }
+        };
+    }
     /** 
     *setters for year,month, day and locale if need be
     */
     setLocale(locale){ this.locale=locale; }
-    setDayOfMonth(day){ return GeezDate.of(this.year, this.month, day) }
+    setDayOfMonth(day){
+        var diff=this.dayOfMonth-day;
+        this.dayOfYear+=diff;
+        this.julianDay+=diff; 
+        this.dayOfMonth=day;
+    }
     setMonth(month){ return GeezDate.of(this.year, month, this.dayOfMonth) }
     setYear(year){ return GeezDate.of(year, this.month, this.dayOfMonth) }
+
+    /**
+     * Calculates GeezDate from Julian day number.
+     * @param {Number} jdn 
+     * @returns GeezDate
+     */
+    static jdnToGeez (jdn) { // correct multiplication in javascript=Math.imul(number,number) is used instead of number*number.
+        var r = (jdn - jOffset) % 1461; 
+        var n = r%365 + Math.imul/*here*/(365,(r/1460));
+        var year =Math.floor(Math.imul/*here*/(4 , ((jdn - jOffset) / 1461)) + r / 365 - r / 1460);
+        var month = Math.floor(n/30 + 1);
+        var dayOfMonth = Math.floor(n%30 + 1);
+        var dayOfYear = Math.floor((Math.imul/*here*/((month - 1) , 30)) + dayOfMonth);
+        return new GeezDate(year, month, dayOfMonth, dayOfYear,jdn);
+    }
 
     /**
      * 
@@ -127,7 +149,7 @@ class GeezDate{
             var jdn=this.geezToJdn(year,month,dayOfMonth);
             return new GeezDate(year,month,dayOfMonth,dayOfYear,jdn);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         //  validate(year,month,dayOfMonth);//this Validates the parameters as valid dates.
         
@@ -136,9 +158,9 @@ class GeezDate{
 }
 // test output.
 
-console.log(GeezDate.now());// without parameter.
+/*console.log(GeezDate.now());// without parameter.
 console.log(GeezDate.from(new Date()))// with Date() as parameter
-console.log(GeezDate.of(2015,13,4)); // with Geez dates as parameters
+console.log(GeezDate.of(2015,13,4)); // with Geez dates as parameters*/
 
 /**
  * validates Geez Date
