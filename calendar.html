@@ -19,10 +19,12 @@
     <script>
         var dateToday = GeezDate.now();
         var today=dateToday.format();
-        var m=dateToday.month;
-        var y=dateToday.year;
-        var calendarMonth=GeezDate.of(y,m,1);
-        // !!!! uncomment below line if you want text in English.
+        var m=dateToday.month;                    // current month
+        var y=dateToday.year;                    // current year
+        var calendarMonth=GeezDate.of(y,m,1);   // Day should be 1.to reduce unneccesary code to compensate for Pagumie date error. 
+        /** !!!! uncomment below line if you want text in English.
+        * optional if other locales may be set by adding localle resources in Calendar class.
+        */
         //calendarMonth.setLocale("iso");
     </script>
     <nav class="navi" id="menu">
@@ -102,7 +104,7 @@
                     y=y+1;
                 }
                 // renew Calendar month with new params.
-                //  !!!! day should be set to 1 !!!!!
+                // !!!! day should be set to 1 !!!!!
                 calendarMonth=GeezDate.of(y,m,1);
                 // finally  set text to card.
                 calendarCard.innerHTML=calendar.showMonth(calendarMonth);
