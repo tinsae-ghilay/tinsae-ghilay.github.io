@@ -1,53 +1,89 @@
 const currentDate=GeezDate.now();
+
 class Calendar{
     constructor(){
     }
     showMonth(start){
-        var html="";
+
+        // first get required data from GeezDate befor any change happens
         var thisMonth=start.month;
         var thisYear=start.year;
+
+        // first day of the month( sun=0 sat=6)
         var firstDay=start.dayOfWeek();
+
+        // array of days of the week (locale based).
         var weekDays=start.getDaysOfWeek();
-        //console.log(firstDay + "and jdn ="+start.julianDay);
-        //console.log("date before reduction "+start.format());
-        // console.log("firstDay is "+firstDay);
+        
+        // we should declare month here, because it will change in the next step
         var displayedMonth=start.getMonth();
-        //start=start.setDayOfMonth(1);
-        start=start.plusDays(-firstDay);// back to day one
-        //console.log("start date is "+start.format());
-        //start=start.plusDays(+start.dayOfWeek());
+
+        // back to start of week. in our case Sunday and fetch remaining days from previous month
+        start=start.plusDays(-firstDay);
+
+        // setting text to title of the month. i.e Month and year the calendar is on.
         document.getElementById("title").innerHTML=displayedMonth+", <span class=\"latin\">"+thisYear+"</span>";
+
+        // Calendar navigation Buttons and month related picture.
         var bar=document.getElementById("calendarNav");
+        
+        // CSS.
+        // pictures should be named 1-13 with a .webp extension,
+        // we want pictures to represent month.
+        // so naming picture for september would be 1.webp and pagumie would be 13.webp
         bar.style.background="url('./res/"+thisMonth+".webp')";
         bar.style.backgroundPosition="center";
         bar.style.backgroundSize="cover";
-        //html+="<h3 style=\"align-text: center; width=\"100%\"\">"+displayedMonth+"</h3>";
-        html+="<table>";
+        
+        // HTML tags start here 
+        // week days in a table head. we get it from array
+        var html ="<table>";
         html+="<tr style=\"padding:3px;\">";
         html+="<th class=\"weekend\">"+weekDays[0]+"</th><th>"+weekDays[1]+"</th><th>"+
             weekDays[2]+"</th><th>"+weekDays[3]+"</th><th>"+weekDays[4]+"</th><th>"+
             weekDays[5]+"</th><th class=\"weekend\">"+
         weekDays[6]+"</th></tr></table>";
+
+        // month dates part of the card starts here
         html+="<div class=\"month\" id=\"mon\">";
+
+        // number of days in month grid is 7*6=42 so loop < 43;
         for(let i=1;i<43;i++){
+
+            //start tag and class of a day box
+            html+="<li class =\"day ";
+
+            // if within calendar month?
             if(start.month==thisMonth){
+
+                // if week end or not
+                if((i%7==0 )|| (i%7==1)){
+                    html+="weekend ";
+                }else{
+                    html+="week ";
+                }
+                // if this date? 
                 if(start.dayOfMonth==currentDate.dayOfMonth 
                     && thisMonth==currentDate.month
                     && thisYear==currentDate.year){
-                        if((i%7==0 )|| (i%7==1)){
-                            html+="<li class=\"day today weekend\"> ";
-                        } else{html+="<li class=\"day today\"> ";}
-                }else{
-                    if((i%7==0 )|| (i%7==1)){
-                        html+="<li class=\"day weekend\"> ";
-                    } else{html+="<li class=\"day week\"> ";}
+                        html+="today";
                 }
-            }else{
-                html+="<li class=\"day month-offset\"> ";
+
+            }else{ // if dates are of previous month or next month
+                html+="offset";
             }
+
+            // we close tag
+            html+="\">";
+
+            // add 0 to dates < 10 and add it between tag and end tag
             html+=String(start.dayOfMonth).padStart(2,"0")+"</li>";
+
+            // add one day to GeezDate object so that it can be used for the next day.
             start=start.plusDays(1);
        }
+
+       // Calendar dates grid ends here.
        html+="</div>";
        return html;
     }
