@@ -172,6 +172,8 @@ I have the following CSS id.
         calendarCard.innerHTML=calendar.showMonth(calendarMonth); // and we are done.
      }
    </script>
-    ```   
+   
+  ```
+    
 and for navigating back just reverse the steps. 
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
