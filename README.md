@@ -76,7 +76,7 @@ I have the following CSS id.
   
   ``` css
   
-  /* the container that will hold the calendar table
+  /* the container that will hold the calendar table */
   #calendar{
     margin-top: 0px;
     -webkit-border-radius: 1em;
