@@ -23,7 +23,7 @@ if you are interested on how to use these classes without changing anything here
 P.s I am only interested in Day, month and year aspects of the Geez calendar. not in Time so I did not includ Hours, minute, seconds and milliseconds.
 
 
-### GeezDate
+## GeezDate
 
 There is no need to call new instance of the class it self. Just call the static methods to get the date.
 
@@ -61,7 +61,7 @@ var gregorianDate=GeezDate.toGregorian();
 
 ```
 
-### Calendar
+## Calendar
 
 The Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
 
