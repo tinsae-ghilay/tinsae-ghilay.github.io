@@ -65,7 +65,7 @@ var gregorianDate=GeezDate.toGregorian();
 
 the Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
 
-##### Example 
+#### Example 
 
 Again if you dont want to change anything,
 
@@ -106,7 +106,7 @@ I have the following CSS id.
   }
   ```
   
- #####important!!
+ ##### important!!
  if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
  and then in html.
   
