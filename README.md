@@ -73,7 +73,7 @@ Again if you don#t want to change anything,..
 If you want to have a custom styled Week days. they reside in a <th> tag of a table. hense style a th tag
 
 declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
-I have the following CSS id.
+I have the following CSS id in calendar.css.
   
   ``` css
   
@@ -126,7 +126,7 @@ I have the following CSS id.
  and then in html.\
   
  Also background images for calendarNav need to be named from 1 to 13 based on month they represent, and they should be in .webp format.
- as can be seen in bellow example.
+ as can be seen in bellow example from showMonth() function of Calendar class(Calendar.js).
   
   ``` javascript
    // setting text to title of the month. i.e Month and year the calendar is on.
@@ -155,6 +155,8 @@ I have the following CSS id.
     <li> . todays for indicating the current day of the month</li>
     <li> . weekend and optionally .week for weekends and weekdays respectively.</li>
   </ul>
+  
+  and implementation in HTML goes like..
   
 ```html
 <div id="calendar"></div>
@@ -186,7 +188,7 @@ I have the following CSS id.
     
   </script>
   ```
-  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.\
+  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation in calendar.html as such \
   
   
   ```html
