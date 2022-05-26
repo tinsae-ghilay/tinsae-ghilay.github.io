@@ -149,9 +149,9 @@ I have the following CSS id.
   Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.
   ```html
   <script>
-     // next button
-      var next=document.getElementById("next"); 
-      next.addEventListener("click", nextMonth);
+    // next button
+    var next=document.getElementById("next"); 
+    next.addEventListener("click", nextMonth);
     
     // the nextMonth function like so
     // navigating forward when next button is clicked. 
@@ -167,7 +167,7 @@ I have the following CSS id.
         calendarMonth=GeezDate.of(y,m,1); // as always dayOfMonth set to 1;
         // finally  set text to card.
         calendarCard.innerHTML=calendar.showMonth(calendarMonth); // and we are done.
-      }
+     }
    </script>
     ```
     and for navigating back just reverse the steps. 
