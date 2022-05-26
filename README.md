@@ -79,9 +79,23 @@ I have the following CSS id.
   
   /* the container that will hold the calendar table */
   #calendar{
-    /* your style here*/
-    margin-top: 0px;
-    border-radius: 1em;
+  
+    /* your style here style it the way you like*/
+  }
+  
+  /* title where current month and year are displayed*/
+  
+  #title{
+  
+  /* style here */
+  
+  }
+  
+  /* a div where(optionally) navigation buttons and Title are located and background changes dynamically.*/
+  
+  #calendarNav{
+  
+  /* style here*/
   }
   
   /* a month grid where day cells are arranged looks like this */
@@ -93,31 +107,34 @@ I have the following CSS id.
     /* your style here */
   }
   
-  /* th for week days*/
+  /* th fordays of the week*/
   th {
+    /* your style here 
     width: 100%;
   }
   
   /* day cells*/
+  
   .day{
     /* your style here*/
-    display:flex;
-    align-items: center;
-    justify-content: center;
   }
+  
   ```
   
  ##### important!!
  if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
- and then in html.
+ and then in html.\
   
-  additional CSS classe that you can add are ,
+ Also background images for calendarNav need to be named from 1 to 13 based on month they represent, and they should be in .webp format.
+ 
+  
+  Additional CSS classe that you can add are ,
   
   <ul>
-    <li>.offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
-    <li>.todays for indicating the current day of the month</li>
-    <li> and .weekend and optionally .week for weekends and weekdays respectively.</li>
-   </ul>
+    <li> . offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
+    <li> . todays for indicating the current day of the month</li>
+    <li> . weekend and optionally .week for weekends and weekdays respectively.</li>
+  </ul>
   
 ```html
 <div id="calendar"></div>
@@ -149,7 +166,8 @@ I have the following CSS id.
     
   </script>
   ```
-  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.
+  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.\
+  
   
   ```html
   <script>
