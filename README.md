@@ -126,6 +126,26 @@ I have the following CSS id.
  and then in html.\
   
  Also background images for calendarNav need to be named from 1 to 13 based on month they represent, and they should be in .webp format.
+ as can be seen in bellow example.
+  
+  ``` javascript
+   // setting text to title of the month. i.e Month and year the calendar is on.
+  
+    document.getElementById("title").innerHTML=displayedMonth+", <span class=\"latin\">"+thisYear+"</span>";
+
+    // background of Div where navigation buttons and title reside.
+  
+    var bar=document.getElementById("calendarNav");
+
+    // CSS tags.
+    // pictures should be named 1-13 with a .webp extension,
+    // we want pictures to represent month.
+    // so naming picture for september would be 1.webp and pagumie would be 13.webp
+    bar.style.background="url('./res/"+thisMonth+".webp')";
+    bar.style.backgroundPosition="center";
+    bar.style.backgroundSize="cover";
+  
+  ```
  
   
   Additional CSS classe that you can add are ,
