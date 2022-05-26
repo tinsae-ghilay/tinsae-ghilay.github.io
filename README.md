@@ -78,9 +78,8 @@ I have the following CSS id.
   
   /* the container that will hold the calendar table */
   #calendar{
+    /* your style here*/
     margin-top: 0px;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
     border-radius: 1em;
   }
   
@@ -90,6 +89,7 @@ I have the following CSS id.
     grid-template-columns: auto auto auto auto auto auto auto;
     column-count: 7;
     width: 100%;
+    /* your style here */
   }
   
   /* th for week days*/
@@ -99,6 +99,7 @@ I have the following CSS id.
   
   /* day cells*/
   .day{
+    /* your style here*/
     display:flex;
     align-items: center;
     justify-content: center;
@@ -110,6 +111,7 @@ I have the following CSS id.
  and then in html.
   
   additional CSS classe that you can add are ,
+  
   <ul>
     <li>.offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
     <li>.todays for indicating the current day of the month</li>
