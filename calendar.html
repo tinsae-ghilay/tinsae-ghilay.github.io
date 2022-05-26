@@ -3,10 +3,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="./styles/style.css"/> 
 <link rel="stylesheet" href="./styles/calendar.css"/> 
-<script src="script.js">
-</script>
-<script src="calendar.js">
-</script>
+<link rel="shortcut icon" href="#">
+<script src="GeezDate.js"></script>
+<script src="calendar.js"></script>
+<script src="Constants.js"></script>
 <html>
 <body>
     <div id="wall">
@@ -18,14 +18,18 @@
     </div>
     <script>
         var dateToday = GeezDate.now();
-        var today=dateToday.format();
+        //var today=dateToday.format();
         var m=dateToday.month;                    // current month
         var y=dateToday.year;                    // current year
         var calendarMonth=GeezDate.of(y,m,1);   // Day should be 1.to reduce unneccesary code to compensate for Pagumie date error. 
         /** !!!! uncomment below line if you want text in English.
         * optional if other locales may be set by adding localle resources in Calendar class.
         */
-        //calendarMonth.setLocale("iso");
+        // Calendar constants acording to Geez Calendar.
+        // these Constants are Days of the week, Months of the year...etc.
+        // we get tose constants based on Language (locale) eg. here I used Geez. can also be iso for English
+        var constants=new Constants("Geez")
+        var calendar=new Calendar(constants);
     </script>
     <nav class="navi" id="menu">
         <div id="header-logo" >
@@ -33,12 +37,12 @@
             <h1><script> 
             // this line writes current date on nav-bar.
             document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
-                        " "+dateToday.getMonth()+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
+                        " "+constants.getMonth(dateToday.month)+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
             
         </div>
         <div>
             <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars "></i>
               </a>
             <a href="index.html">Home</a>
             <a class="active" href="calendar.html">Calendar</a>
@@ -50,7 +54,7 @@
 <div class="container">
     <div class="calendar-container">
         <script>
-            var calendar=new Calendar(dateToday.month);
+        
         </script> 
         <!-- top banner with image relative to month -->
         <div id="calendarNav" class="navButtons">
@@ -122,11 +126,15 @@
             }
 
             function ressetCalendar(){// resset to current calendar month.
+                var onThisMonth = (m==dateToday.month && y== dateToday.year);
                 //y= year, m=month, day is always set to begining of month i.e. 1.
-                y=dateToday.year;
-                m=dateToday.month;
-                calendarMonth=GeezDate.of(y,m,1);
-                calendarCard.innerHTML=calendar.showMonth(calendarMonth);
+
+                if( !onThisMonth ){
+                    y=dateToday.year;
+                    m=dateToday.month;
+                    calendarMonth=GeezDate.of(y,m,1);
+                    calendarCard.innerHTML=calendar.showMonth(calendarMonth);
+                }
             }
         </script>
     </div>
