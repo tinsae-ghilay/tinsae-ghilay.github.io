@@ -67,7 +67,9 @@ the Calendar class has a showMonth() function that returns HTML tags as a single
 
 ##### Example 
 
-Again if you dont want to change anything, 
+Again if you dont want to change anything,
+
+c
 
 if you want to have a custom styled Week days. the reside in a <th> tag of a table.
 
@@ -81,22 +83,79 @@ I have the following CSS id.
     -webkit-border-radius: 1em;
     -moz-border-radius: 1em;
     border-radius: 1em;
+  }
+  
+  /* a month grid where day cells are arranged looks like this */
+  .month{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    min-height: 300px;
+    max-height: 500px;
+    column-count: 7;
+    width: 100%;
+    max-width: 500px;
+    min-width: 300px;
+    justify-items: center;
+    border-radius: 0 0 15px 15px;
+    background-color: rgb(46, 46, 46);
 }
+  
+  /* th for week days*/
+  th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+  }
+  
+  /* day cells*/
+  .day{
+    border-radius: 50%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:  solid 1px transparent;
+    margin: 10%;
+  }
   ```
-and then in html.
+  
+ !! important, if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
+ and then in html.
   
 ```html
 <div id="calendar"></div>
   <script>
     
-    // declaring the calendar card that will hold the dates
-    var calendarCard=document.getElementById("calendar"); 
+    // we get the current date
+    var dateToday = GeezDate.now();
+    
+    // take the month and year of the current date
+    var m=dateToday.month;                    
+    var y=dateToday.year;
+    
+    // Day should be 1 to reduce unneccesary code to compensate for Pagumie date error.
+    var calendarMonth=GeezDate.of(y,m,1);
+    
+    // we get the id where Calendar is going to reside
+    var calendarCard=document.getElementById("calendar");
+    
+    // now we can call the constants also based on locale we want. 
+    // if we want it in Tigrinya we can pass an empty string, for English we pass "iso"
+    var constants=new Constants("Geez");
+    
+    // and we call a new instance of calendar by passing an instance of Constants
+    var calendar=new Calendar(constants);
 
     // setting html data dynamically from javascript 
     calendarCard.innerHTML=calendar.showMonth(calendarMonth); 
     
   </script>
   ```
+  
 
 
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io ">here</a>
