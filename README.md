@@ -38,12 +38,16 @@ var newDate = newDate(numberOfDays);
 If you want to convert a geez date to Gregorian date, you can call the to() function like below.
 
 
-```
+```javascript
+
 // A GeezDate that we want to convert to Gregorian.
 var geezDate=GeezDate.of(2014,9,16);
 
 // We pass that GeezDate object as parameter to the to() function of the class.
 var toGregorian=GeezDate.to(geezDate);
+
+
+```
 
 
 
