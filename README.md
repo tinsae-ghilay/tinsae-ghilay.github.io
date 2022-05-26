@@ -114,7 +114,7 @@ I have the following CSS id.
     <li>.offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
     <li>.todays for indicating the current day of the month</li>
     <li> and .weekend and optionally .week for weekends and weekdays respectively.</li>
-   <ul>
+   </ul>
   
 ```html
 <div id="calendar"></div>
