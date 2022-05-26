@@ -1,5 +1,7 @@
 # Geez date
 
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/tinsae-ghilay/tinsae-ghilay.github.io/edit/main/README.md)
+
 ## what is this?
 
 GeezDate is a Javascript version of the Java and Kotlin Classes with the same name designed to be used in Date conversion and displaying a Calendar in mobile apps and websites.  these Classes are meant to be easy and targeted at an objective. thus the Methods(functions) are mostly if not all, similar.
@@ -175,5 +177,8 @@ I have the following CSS id.
    
   ```
     
-and for navigating back just reverse the steps. 
+And for navigating back just reverse the steps. 
+
+##### Also.
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
+Opinion, comments advice and recomendations will be greatly apreciated.
