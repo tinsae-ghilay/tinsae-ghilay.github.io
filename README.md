@@ -182,10 +182,10 @@ And for navigating back just reverse the steps.
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
 Opinion, comments advice and recomendations will be greatly apreciated.
 
-## Maintainer
+#### Maintainer
   
 [@tinsae-ghilay](https://github.com/tinsae-ghilay).
     
-## License
+#### License
 
 [MIT](LICENSE) © Richard Littauer
