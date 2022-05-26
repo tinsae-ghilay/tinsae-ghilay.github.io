@@ -22,7 +22,11 @@ if you are interested on how to use these classes without changing anything here
 
 P.s I am only interested in Day, month and year aspects of the Geez calendar. not in Time so I did not includ Hours, minute, seconds and milliseconds.
 
+
+### GeezDate
+
 There is no need to call new instance of the class it self. Just call the static methods to get the date.
+
 
 
 ```javascript
@@ -57,5 +61,42 @@ var toGregorian=GeezDate.to(geezDate);
 
 ```
 
+### Calendar
 
-visit this site at https://tinsae-ghilay.github.io 
+the Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
+
+##### Example 
+
+Again if you dont want to change anything, 
+
+if you want to have a custom styled Week days. the reside in a <th> tag of a table.
+
+declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
+I have the following CSS id.
+  
+  ``` css
+  
+  #calendar{
+    margin-top: 0px;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+}
+  ```
+and then in html.
+  
+```html
+<div id="calendar"></div>
+  <script>
+    
+    // declaring the calendar card that will hold the dates
+    var calendarCard=document.getElementById("calendar"); 
+
+    // setting html data dynamically from javascript 
+    calendarCard.innerHTML=calendar.showMonth(calendarMonth); 
+    
+  </script>
+  ```
+
+
+If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io ">here</a>
