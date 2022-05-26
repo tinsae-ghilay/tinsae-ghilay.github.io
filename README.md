@@ -149,6 +149,7 @@ I have the following CSS id.
   </script>
   ```
   Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.
+  
   ```html
   <script>
     // next button
@@ -171,8 +172,6 @@ I have the following CSS id.
         calendarCard.innerHTML=calendar.showMonth(calendarMonth); // and we are done.
      }
    </script>
-    ```
-    and for navigating back just reverse the steps. 
-
-
-If you want to see how this looks in a website, look at it <a href="https://choosealicense.com/licenses/mit/">here</a>
+    ```   
+and for navigating back just reverse the steps. 
+If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
