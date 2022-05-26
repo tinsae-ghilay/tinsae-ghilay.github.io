@@ -55,8 +55,8 @@ If you want to convert a geez date to Gregorian date, you can call the to() func
 // A GeezDate that we want to convert to Gregorian.
 var geezDate=GeezDate.of(2014,9,16);
 
-// We pass that GeezDate object as parameter to the to() function of the class.
-var toGregorian=GeezDate.to(geezDate);
+// and to convert it to Gregorian.
+var gregorianDate=GeezDate.toGregorian();
 
 
 ```
@@ -89,37 +89,20 @@ I have the following CSS id.
   .month{
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto auto;
-    min-height: 300px;
-    max-height: 500px;
     column-count: 7;
     width: 100%;
-    max-width: 500px;
-    min-width: 300px;
-    justify-items: center;
-    border-radius: 0 0 15px 15px;
-    background-color: rgb(46, 46, 46);
-}
+  }
   
   /* th for week days*/
   th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
     width: 100%;
-    color: rgb(255, 255, 255);
   }
   
   /* day cells*/
   .day{
-    border-radius: 50%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display:flex;
     align-items: center;
     justify-content: center;
-    border:  solid 1px transparent;
-    margin: 10%;
   }
   ```
   
