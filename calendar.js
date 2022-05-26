@@ -1,8 +1,13 @@
 const currentDate=GeezDate.now();
+//var locale;
 
 class Calendar{
-    constructor(){
+   
+    constructor(constants){
+
+        this.constants=constants;
     }
+
     showMonth(start){
 
         // first get required data from GeezDate befor any change happens
@@ -13,11 +18,10 @@ class Calendar{
         var firstDay=start.dayOfWeek();
 
         // array of days of the week (locale based).
-        var weekDays=start.getDaysOfWeek();
+        var weekDays=this.constants.week;
         
         // we should declare month here, because it will change in the next step
-        var displayedMonth=start.getMonth();
-
+        var displayedMonth=this.constants.getMonth(start.month)
         // back to start of week. in our case Sunday and fetch remaining days from previous month
         start=start.plusDays(-firstDay);
 
@@ -48,7 +52,7 @@ class Calendar{
         html+="<div class=\"month\" id=\"mon\">";
 
         // number of days in month grid is 7*6=42 so loop < 43;
-        for(let i=1;i<43;i++){
+        for(let i=0;i<42;i++){
 
             //start tag and class of a day box
             html+="<li class =\"day ";
@@ -57,7 +61,7 @@ class Calendar{
             if(start.month==thisMonth){
 
                 // if week end or not
-                if((i%7==0 )|| (i%7==1)){
+                if((i%7==0 )|| ((i)%7==6)){
                     html+="weekend ";
                 }else{
                     html+="week ";
