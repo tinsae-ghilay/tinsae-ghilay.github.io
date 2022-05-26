@@ -179,7 +179,7 @@ I have the following CSS id.
 And for navigating back just reverse the steps. 
 
 ##### Also.
-If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
+If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>\
 Opinion, comments advice and recomendations will be greatly apreciated.
 
 #### Maintainer
