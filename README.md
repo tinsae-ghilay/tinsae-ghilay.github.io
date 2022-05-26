@@ -188,7 +188,7 @@ I have the following CSS id in *calendar.css*.
     
   </script>
   ```
-  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation in *calendar.html* as such \
+  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation in *calendar.html* as such 
   
   
   ```html
