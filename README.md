@@ -69,9 +69,7 @@ the Calendar class has a showMonth() function that returns HTML tags as a single
 
 Again if you dont want to change anything,
 
-c
-
-if you want to have a custom styled Week days. the reside in a <th> tag of a table.
+if you want to have a custom styled Week days. they reside in a <th> tag of a table.
 
 declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
 I have the following CSS id.
@@ -98,7 +96,9 @@ I have the following CSS id.
     width: 100%;
   }
   
+  
   /* day cells*/
+  
   .day{
     display:flex;
     align-items: center;
@@ -106,7 +106,8 @@ I have the following CSS id.
   }
   ```
   
- !! important, if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
+ #####important!!
+ if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
  and then in html.
   
   additional CSS classe that you can add are ,
