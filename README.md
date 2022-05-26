@@ -1,6 +1,5 @@
 # Geez date
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/tinsae-ghilay/tinsae-ghilay.github.io/edit/main/README.md)
 
 ## what is this?
 
@@ -182,3 +181,11 @@ And for navigating back just reverse the steps.
 ##### Also.
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>
 Opinion, comments advice and recomendations will be greatly apreciated.
+
+## Maintainer
+  
+[@tinsae-ghilay](https://github.com/tinsae-ghilay).
+    
+## License
+
+[MIT](LICENSE) © Richard Littauer
