@@ -228,4 +228,4 @@ Opinion, comments advice and recomendations will be greatly apreciated.
     
 #### License
 
-[MIT](LICENSE) © Richard Littauer
+[MIT](LICENSE) © Tinsae Ghilay
