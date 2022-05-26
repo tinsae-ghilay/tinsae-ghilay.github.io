@@ -63,19 +63,20 @@ var gregorianDate=GeezDate.toGregorian();
 
 ### Calendar
 
-the Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
+The Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
 
 #### Example 
 
-Again if you dont want to change anything,
+Again if you don#t want to change anything,..
 
-if you want to have a custom styled Week days. they reside in a <th> tag of a table.
+If you want to have a custom styled Week days. they reside in a <th> tag of a table. hense style a th tag
 
 declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
 I have the following CSS id.
   
   ``` css
   
+  /* the container that will hold the calendar table
   #calendar{
     margin-top: 0px;
     -webkit-border-radius: 1em;
@@ -96,9 +97,7 @@ I have the following CSS id.
     width: 100%;
   }
   
-  
   /* day cells*/
-  
   .day{
     display:flex;
     align-items: center;
@@ -125,6 +124,7 @@ I have the following CSS id.
     var dateToday = GeezDate.now();
     
     // take the month and year of the current date
+    // Using these two variables, we can navigate forward and backward in months and years. 
     var m=dateToday.month;                    
     var y=dateToday.year;
     
@@ -146,7 +146,31 @@ I have the following CSS id.
     
   </script>
   ```
-  
+  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation.
+  ```html
+  <script>
+     // next button
+      var next=document.getElementById("next"); 
+      next.addEventListener("click", nextMonth);
+    
+    // the nextMonth function like so
+    // navigating forward when next button is clicked. 
+    function nextMonth(){
+        if(m<13){ // if month is not the last month in that year add one
+            m=m+1;
+        }else{ // if it is the last month already , revert to september
+            m=1;
+            //and increase year by one.
+            y=y+1;
+        }
+        // renew CalendarMonth with new params.
+        calendarMonth=GeezDate.of(y,m,1); // as always dayOfMonth set to 1;
+        // finally  set text to card.
+        calendarCard.innerHTML=calendar.showMonth(calendarMonth); // and we are done.
+      }
+   </script>
+    ```
+    and for navigating back just reverse the steps. 
 
 
 If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io ">here</a>
