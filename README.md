@@ -109,6 +109,13 @@ I have the following CSS id.
  !! important, if you change class names in CSS , their names should also be changed in the Calendar class at Calendar.js 
  and then in html.
   
+  additional CSS classe that you can add are ,
+  <ul>
+    <li>.offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
+    <li>.todays for indicating the current day of the month</li>
+    <li> and .weekend and optionally .week for weekends and weekdays respectively.</li>
+   <ul>
+  
 ```html
 <div id="calendar"></div>
   <script>
