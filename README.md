@@ -10,6 +10,14 @@ if you care about License, assume this as having an MIT licence as stated <a hre
 
 ## Usage
 
+There are three classes in this repo. 
+
+<ol>
+  <li> GeezDate class that handles the conversion to and fro geez and iso dates and also date arthimetic.</li>
+  <li> Calendar class that shows a calendar as an innerHTML to a div by refering to its ID.</li>
+  <li> and a Constants class that holds the week days and months of Geez calendar in English and Tigrinya.(a lot of room for improvement on how this is handled) </li>
+</ol>
+
 if you are interested on how to use these classes without changing anything here is how to.
 
 P.s I am only interested in Day, month and year aspects of the Geez calendar. not in Time so I did not includ Hours, minute, seconds and milliseconds.
@@ -25,7 +33,7 @@ var now = GeezDate.now();
 // To convert a Date object to a GeezDate object
 var date = GeezDate.from(new Date(2022,9,31)); 
 
-// get a Date object by passing a specific date in Geez calendar
+// get a GeezDate object by passing a specific date in Geez calendar
 var dateOf = GeezDate.of(2014,9,18);  
 
 // to increment date by numberOfDays 
@@ -48,7 +56,6 @@ var toGregorian=GeezDate.to(geezDate);
 
 
 ```
-
 
 
 visit this site at https://tinsae-ghilay.github.io 
