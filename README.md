@@ -160,7 +160,8 @@ and implementation in HTML goes like.
     var y=dateToday.year;
     
     // Day should be 1 to reduce unnecessary code to compensate for Pagumie date error.
-    var calendarMonth=GeezDate.of(y,m,1);
+    // because we want calendar to default to current month at first. we create a GeezDate of the current month. 
+    var calendarDate=GeezDate.of(y,m,1);
     
     // we get the id where Calendar is going to reside
     var calendarCard=document.getElementById("calendar");
@@ -173,7 +174,7 @@ and implementation in HTML goes like.
     var calendar=new Calendar(constants);
 
     // setting html data dynamically from javascript 
-    calendarCard.innerHTML=calendar.showMonth(calendarMonth); 
+    calendarCard.innerHTML=calendar.showMonth(calendarDate); 
     
   </script>
   ```
