@@ -5,28 +5,26 @@
 
 GeezDate is a Javascript version of the Java and Kotlin Classes with the same name designed to be used in Date conversion and displaying a Calendar in mobile apps and websites.  these Classes are meant to be easy and targeted at an objective. thus the Methods(functions) are mostly if not all, similar.
 
-The idea is to make it easy to convert between the already available standard APIs and Geez date.  I am using Joda time in an app and since it may( may not) be depreciated. I wanted to be on the safe side. If any one is in the same situation feel free to adapt this to your liking and use it any way you like.
-if you care about License, assume this as having an MIT licence as stated <a href="https://choosealicense.com/licenses/mit/">here</a>
+The idea is to make it easy to convert between the already available standard APIs and Geez date.  I am using Joda time in an app and since it may( may not) be depreciated. I wanted to be on the safe side. If anyone is in the same situation feel free to adapt this to your liking and use it any way you like.
+if you care about License, assume this as having an MIT licence as stated [here](https://choosealicense.com/licenses/mit/)
 
 
 ## Usage
 
 There are three classes in this repo. 
 
-<ol>
-  <li> GeezDate class that handles the conversion to and fro geez and iso dates and also date arthimetic.</li>
-  <li> Calendar class that shows a calendar as an innerHTML to a div by refering to its ID.</li>
-  <li> and a Constants class that holds the week days and months of Geez calendar in English and Tigrinya.(a lot of room for improvement on how this is handled) </li>
-</ol>
+  * GeezDate class that handles the conversion to and fro geez and iso dates and also date arithmetic.
+  *  Calendar class that shows a calendar as an innerHTML to a div by referring to its ID.
+  * and a Constants class that holds the week days and months of Geez calendar in English and Tigrinya.(a lot of room for improvement on how this is handled).
 
 if you are interested on how to use these classes without changing anything here is how to.
 
-P.s I am only interested in Day, month and year aspects of the Geez calendar. not in Time so I did not includ Hours, minute, seconds and milliseconds.
+P.s I am only interested in Day, month and year aspects of the Geez calendar. not in Time so I did not include Hours, minute, seconds and milliseconds.
 
 
 ## GeezDate
 
-There is no need to call new instance of the class it self. Just call the static methods to get the date.
+There is no need to call new instance of the class itself. Just call the static methods to get the date.
 
 
 
@@ -48,7 +46,7 @@ var newDate = newDate(numberOfDays);
 
 ```
 
-If you want to convert a geez date to Gregorian date, you can call the to() function like below.
+If you want to convert a geez date to Gregorian date, you can call the ***toGregorian();*** function like below.
 
 
 ```javascript
@@ -70,32 +68,26 @@ The Calendar class has a showMonth() function that returns HTML tags as a single
 
 Again if you don#t want to change anything,..
 
-If you want to have a custom styled Week days. they reside in a <th> tag of a table. hense style a th tag
+If you want to have a custom styled Week days. they reside in a <th> tag of a table. hence style a th tag
 
 declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
-I have the following CSS id in *calendar.css*.
+I have the following CSS id in ***Calendar.css***.  file name is not important as long as you link it accordingly.
   
   ``` css
   
   /* the container that will hold the calendar table */
   #calendar{
-  
-    /* your style here style it the way you like*/
+    /* style for the container  */
   }
   
   /* title where current month and year are displayed*/
-  
   #title{
-  
-  /* style here */
-  
+    /* style here */
   }
   
-  /* a div where(optionally) navigation buttons and Title are located and background changes dynamically.*/
-  
+  /*below is a div where(optionally) navigation buttons and Title are located and background changes dynamically.*/
   #calendarNav{
-  
-  /* style here*/
+   /* style here for container for navigation and title*/
   }
   
   /* a month grid where day cells are arranged looks like this */
@@ -104,17 +96,16 @@ I have the following CSS id in *calendar.css*.
     grid-template-columns: auto auto auto auto auto auto auto;
     column-count: 7;
     width: 100%;
-    /* your style here */
+    /* your aditional style here */
   }
   
-  /* th fordays of the week*/
+  /* th for days of the week */
   th {
     /* your style here 
     width: 100%;
   }
   
-  /* day cells*/
-  
+  /* day cells*/ 
   .day{
     /* your style here*/
   }
@@ -122,11 +113,11 @@ I have the following CSS id in *calendar.css*.
   ```
   
  ##### important!!
- if you change class names in CSS , their names should also be changed in the Calendar class at *Calendar.js* 
+ if you change class names in CSS , their names should also be changed in the Calendar class at ***Calendar.js*** 
  and then in html.\
   
  Also background images for calendarNav need to be named from 1 to 13 based on month they represent, and they should be in .webp format.
- as can be seen in bellow example from showMonth() function of Calendar class(Calendar.js).
+ as can be seen in bellow example from ***showMonth();*** function of ***Calendar*** class at ***Calendar.js***.
   
   ``` javascript
    // setting text to title of the month. i.e Month and year the calendar is on.
@@ -148,15 +139,13 @@ I have the following CSS id in *calendar.css*.
   ```
  
   
-  Additional CSS classe that you can add are ,
+  Additional CSS class that you can add are
+
+* .offset for dates that lie outside the month displayed but overflow to start and end weeks of said month.
+* .today for indicating the current day of the month.
+* .weekend and optionally .week for weekends and weekdays respectively.
   
-  <ul>
-    <li> . offset for dates that lie outside of the month displayed but overflow to start and end weeks of said month</li>
-    <li> . todays for indicating the current day of the month</li>
-    <li> . weekend and optionally .week for weekends and weekdays respectively.</li>
-  </ul>
-  
-  and implementation in HTML goes like..
+and implementation in HTML goes like.
   
 ```html
 <div id="calendar"></div>
@@ -170,7 +159,7 @@ I have the following CSS id in *calendar.css*.
     var m=dateToday.month;                    
     var y=dateToday.year;
     
-    // Day should be 1 to reduce unneccesary code to compensate for Pagumie date error.
+    // Day should be 1 to reduce unnecessary code to compensate for Pagumie date error.
     var calendarMonth=GeezDate.of(y,m,1);
     
     // we get the id where Calendar is going to reside
@@ -188,7 +177,7 @@ I have the following CSS id in *calendar.css*.
     
   </script>
   ```
-  Navigation buttons can also be set up and listened for Clicks.  I perform these actions eg for forward navigation in *calendar.html* as such 
+  Navigation buttons can also be set up and listened for Clicks.  I perform these actions e.g. for forward navigation in *calendar.html* as such 
   
   
   ```html
@@ -219,8 +208,8 @@ I have the following CSS id in *calendar.css*.
 And for navigating back just reverse the steps. 
 
 ##### Also.
-If you want to see how this looks in a website, look at it <a href="https://tinsae-ghilay.github.io/calendar.html">here</a>\
-Opinion, comments advice and recomendations will be greatly apreciated.
+If you want to see how this looks in a website, look at it [here](https://tinsae-ghilay.github.io/calendar.html)\
+Opinion, comments advice and recommendations will be greatly appreciated.
 
 #### Maintainer
   
@@ -228,4 +217,4 @@ Opinion, comments advice and recomendations will be greatly apreciated.
     
 #### License
 
-[MIT](LICENSE) © Tinsae Ghilay
+[MIT](https://choosealicense.com/licenses/mit/) © Tinsae Ghilay
