@@ -198,9 +198,9 @@ and implementation in HTML goes like.
             y=y+1;
         }
         // renew CalendarMonth with new params.
-        calendarMonth=GeezDate.of(y,m,1); // as always dayOfMonth set to 1;
+        calendarDate=GeezDate.of(y,m,1); // as always dayOfMonth set to 1;
         // finally  set text to card.
-        calendarCard.innerHTML=calendar.showMonth(calendarMonth); // and we are done.
+        calendarCard.innerHTML=calendar.showMonth(calendarDate); // and we are done.
      }
    </script>
    
