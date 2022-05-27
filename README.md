@@ -62,16 +62,17 @@ var gregorianDate=GeezDate.toGregorian();
 
 ## Calendar
 
-The Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a div.
+The Calendar class has a showMonth() function that returns HTML tags as a single String that becomes an innerHTML of a **&lt;div&gt;**.
 
 #### Example 
 
-Again if you don#t want to change anything,..
+Again if you don't want to change anything,..
 
-If you want to have a custom styled Week days. they reside in a <th> tag of a table. hence style a th tag
+If you want to have a custom styled Week days. they reside in a *&lt;th&gt;* tag of a table. hence style a th tag
 
-declare a #calendar id in CSS or create a CSS class of your wish and give it a "calendar" id in html as follows
-I have the following CSS id in ***Calendar.css***.  file name is not important as long as you link it accordingly.
+declare a ***#calendar*** id in CSS or create a CSS class of your wish and give it a *"calendar"*  id in html as follows.
+
+I have the following classes and ids in ***Calendar.css***.  File name is not important as long as you link it accordingly.
   
   ``` css
   
@@ -141,9 +142,9 @@ I have the following CSS id in ***Calendar.css***.  file name is not important a
   
   Additional CSS class that you can add are
 
-* .offset for dates that lie outside the month displayed but overflow to start and end weeks of said month.
-* .today for indicating the current day of the month.
-* .weekend and optionally .week for weekends and weekdays respectively.
+* *.offset* - for dates that lie outside the month displayed but overflow to start and end weeks of said month.
+* *.today* - for indicating the current day of the month.
+* *.weekend* - and optionally *.week* - for weekends and weekdays respectively.
   
 and implementation in HTML goes like.
   
