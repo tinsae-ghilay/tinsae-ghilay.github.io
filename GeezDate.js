@@ -110,6 +110,10 @@ class GeezDate{
             }
         };
     }
+
+    toGregorian(){
+        return new Date((this.julianDay-jdnOfEpocH)*86400000);
+    }
     
     // static functions below.
     /**
@@ -177,33 +181,9 @@ class GeezDate{
         return new GeezDate(year,month,dayOfMonth,dayOfYear,jdn);    
     }
 
-    /**
-     * 
-     * @param {GeezDate} geezDate 
-     * @returns Date
-     */
-    static toIsoDate(geezDate){
-        try {
-            if(geezDate instanceof GeezDate){
-                var jdn=geezDate.julianDay;
-                var fromEpoch=jdn-jdnOfEpocH;
-                var time=fromEpoch*86400000;
-                return new Date(time);
-            }else{
-                throw new TypeError(" Parameter should be instance of GeezDate")
-            }
-        } catch (error) {
-
-            console.log(error)
-            
-        }
-        return date;
-    }
-
 }
 // test output.
-
-//console.log(GeezDate.now());                  // without parameter.
+//console.log(GeezDate.now().toGregorian());    // without parameter.
 //console.log(GeezDate.from(new Date()))        // with Date() as parameter
 //console.log(GeezDate.of(2015,13,6));          // Should throw no Error
 //console.log(GeezDate.of(2014,13,6));          // should throw Range Error
