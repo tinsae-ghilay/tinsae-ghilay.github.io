@@ -40,7 +40,7 @@ body{
 footer{
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(to right,chocolate,rgb(12, 72, 112), rgb(21, 77, 122));
+    background-image: linear-gradient(to right,#ff4800,rgb(12, 72, 112), rgb(21, 77, 122));
     width: 100%;
     padding: 1rem;
     margin-top: 20px;
@@ -81,8 +81,7 @@ h3{
     position: sticky;
     justify-content: space-between;
     align-content: space-around;
-    border-top: solid 1px chocolate;
-    /*border-bottom: solid 1px chocolate;*/
+    border-top: solid 1px #ff4800;
 
 }
   
@@ -133,7 +132,7 @@ h3{
 }
 
 .active{
-    background: linear-gradient(0deg, chocolate 10%, transparent 10%);
+    background: linear-gradient(0deg, #ff4800 8%, transparent 0%);
     background-repeat: no-repeat;
 }
 
