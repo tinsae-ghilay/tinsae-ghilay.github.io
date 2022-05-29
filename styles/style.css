@@ -87,11 +87,11 @@ h3{
 }
   
 
-.navi a:hover:not(.active) {
+.navi a:hover {
     background-color: rgba(58, 41, 28, 0.5);
 }
 
-.navi a:selection:not(.active){
+.navi a:selection{
     background-color: rgba(58, 41, 28, 0.5);   
 }
   
@@ -219,7 +219,6 @@ em{
 
 .latin{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size:medium;
 }
 @media screen and (max-width:750px) {
     .art{
@@ -295,11 +294,11 @@ em{
         top: 0;
     }
     
-    .pdanav a:hover:not(.active) {
+    .pdanav a:hover{
         background-color: rgba(58, 41, 28, 0.5);
     }
     
-    .pdanav a:selection:not(.active){
+    .pdanav a:selection{
         background-color: rgba(58, 41, 28, 0.5);
     } 
 
