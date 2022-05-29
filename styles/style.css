@@ -133,7 +133,8 @@ h3{
 }
 
 .active{
-    background-color: chocolate;
+    background: linear-gradient(0deg, chocolate 10%, transparent 10%);
+    background-repeat: no-repeat;
 }
 
 .container{ 
@@ -218,6 +219,7 @@ em{
 
 .latin{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:medium;
 }
 @media screen and (max-width:750px) {
     .art{
