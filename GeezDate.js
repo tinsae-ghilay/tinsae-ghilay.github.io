@@ -149,7 +149,9 @@ class GeezDate{
      */
     static now(){
         //var epoch=2440588;// Julian day number of january 1,1970.-- because UNIX time starts from that date.
-        var res=(Date.now())/86400000; // elapsed days since start of UNIX time.
+        var now = new Date().valueOf()
+        //var res=(Date.now())/86400000; // elapsed days since start of UNIX time.
+        var res = now/86400000;
         return this.jdnToGeez(res+jdnOfEpocH);// Julian day number now = Julian day at EPOCH+Elapsed days in UNIX time
     }
 
