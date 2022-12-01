@@ -96,7 +96,7 @@ class GeezDate{
         return Math.ceil((this.julianDay-this.dayOfMonth)%7);
     }
     dayOfWeek(){
-        return Math.round(((this.julianDay+0.5)%7)+1)%7;
+        return Math.round((this.julianDay+0.5)%7)%7;
     }
     
     getMaxDate(){
