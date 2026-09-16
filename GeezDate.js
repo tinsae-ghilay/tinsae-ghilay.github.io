@@ -124,11 +124,12 @@ class GeezDate{
     static jdnToGeez (jdn) { // correct multiplication in javascript=Math.imul(number,number) is used instead of number*number.
         // we have to make sure jdn isn't a float
         jdn = Math.floor(jdn);
-        var r = (jdn - jOffset) % 1461; 
-        var n = r%365 + Math.imul/*here*/(365,(r/1460));
+        var K = 1461;
+        var r = (jdn - jOffset) % K; 
+        var n = r % 365 + Math.imul/*here*/(365, Math.floor(r / (K - 1)));
         
         //var year = Math.floor(Math.imul/*here*/(4 , ((jdn - jOffset) / 1461)) + r / 365 - r / 1460);
-        var year = Math.imul(4, ((jdn - jOffset) / 1461)) + Math.floor(r / 365) - Math.floor(r / 1460);
+        var year = Math.imul(4, ((jdn - jOffset) / K)) + Math.floor(r / 365) - Math.floor(r / (K - 1));
         
         var month = Math.floor(n/30 + 1);
         var dayOfMonth = Math.floor(n%30 + 1);
