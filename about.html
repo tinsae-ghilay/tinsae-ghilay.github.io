@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./styles/style.css"/> 
+<link rel="shortcut icon" href="#">
+<script src="./GeezDate.js"></script>
+<script src="./Constants.js"></script>
+<html>
+<body>
+    <div id="wall">
+        <div class="group">
+            <img id="logo" src="./res/icon.png"/>
+            <h1>Geez Calendar</h1>
+        </div>
+        <img style="height: 165px;width:auto; margin-left: 3em;" src="./res/farmer.png"/>
+    </div>
+    <nav class="navi" id="menu">
+        <div id="header-logo" >
+            <img id="icon" src="./res/icon.png" style="height: 30px;"/>
+            <h1><script> 
+            var dateToday=GeezDate.now();
+            var constants=new Constants("geez");
+            document.write("<span class=\"latin\">"+dateToday.dayOfMonth+"</span>"+
+                        " "+constants.getMonth(dateToday.month)+", <span class=\"latin\">"+dateToday.year+"</span>"); </script></h1>
+            
+        </div>
+        <div>
+            <a href="javascript:void(0);" class="sandwich" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
+            <a class="active" href="index.html">Home</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+<div class="container">
+    <img class="art" src="./res/month.png"/>
+    <div class="paragraph">
+        <hr class="dark-line">
+        <h3>Elet</h3>
+        <hr class="dark-line">
+        <p>ዕለት፣ ብ ቋንቋ ትግርኛ  ፣ዓውደ አዋርሕ ግእዝን ፈረንጂን ንምቑጻርን አብ ሕብረተሰብና ዝዝውተሩ 
+            ሃይማኖታዊን ሃገራዊን ባዓላት ንምሕባርን፣ ከምኡ ውን ካብን ናብን ግእዝን ፈረንጂን ዕለታት ንምቕያር ክጠቅም ተባሂሉ ብውልቃዊ ተበግሶ ዝተቀመረ ናይ 
+            ኣንድሮይድ ሕሳብ እዩ።</p>
+        <p> ዓውደ አዋርሕ ንየማን ንጸጋም ኣንዳገንጸልካ ካብ ወርሒ ናብ ወርሒ ምቕያር ይከአል። ነብሲ ወከፍ ዕለት ምስ እትጥውቕ ከአ ናይታ ዕለት ወርሓዊ ባዓል ምርኣይ ይክኣል።</p>
+            
+    </div>
+</div>
+<footer>
+    <img src="./res//farmer.png"/>
+    <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: ivory; align-self: center;">Copyright&copy; tinsae ghilay</p>
+</footer>
+
+<!-- script from w3schools-->
+<script>
+    //Get the button
+    var icon = document.getElementById("icon");
+    var Logo = document.getElementById("logo");
+    var navBar = document.getElementById("menu");
+    
+    // When the user scrolls up and icon is hidden, show logo
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+        if (navBar.className==="pdanav") {
+            navBar.className="navi"
+            
+        } 
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        Logo.style.visibility = "hidden";
+        icon.style.visibility = "Visible";
+      } else {
+        Logo.style.visibility = "visible";
+        icon.style.visibility = "hidden";
+      }
+    }
+    function myFunction() {
+        var navBar = document.getElementById("menu");
+        if (navBar.className === "navi") {
+            navBar.className = "pdanav";
+        } else {
+            navBar.className = "navi";
+        }
+    }
+    
+    </script>
+</body>
+</html>
