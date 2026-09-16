@@ -41,12 +41,12 @@ class GeezDate{
      * @param {Number} dayOfMonth 
      */
     validate(year, month, dayOfMonth){
-        try {
+        /* try {
             (Number.isInteger(year)) && (Number.isInteger(month)) && (Number.isInteger(dayOfMonth))==true;
         } catch (error) {
             console.log(error+" try catch");
-        }
-        var  areNumbers=(Number.isInteger(year)) && (Number.isInteger(month)) && (Number.isInteger(dayOfMonth));
+        }*/
+        var  areNumbers = Number.isInteger(year) && Number.isInteger(month) && Number.isInteger(dayOfMonth);
         if(!areNumbers){
             message+= "\n * -- Date parameters must be numbers!";
         }
@@ -69,7 +69,7 @@ class GeezDate{
         if(month!=13){
             return dayOfMonth<=30;
         }else{
-            return (year%4==3 && dayOfMonth<=6)|| (year%4!=3 && dayOfMonth<=5);
+            return (year % 4 == 3 && dayOfMonth <= 6) || (year % 4 != 3 && dayOfMonth <= 5);
         }
     }    
 
@@ -122,9 +122,14 @@ class GeezDate{
      * @returns GeezDate
      */
     static jdnToGeez (jdn) { // correct multiplication in javascript=Math.imul(number,number) is used instead of number*number.
+        // we have to make sure jdn isn't a float
+        jdn = Math.floor(jdn);
         var r = (jdn - jOffset) % 1461; 
         var n = r%365 + Math.imul/*here*/(365,(r/1460));
-        var year =Math.floor(Math.imul/*here*/(4 , ((jdn - jOffset) / 1461)) + r / 365 - r / 1460);
+        
+        //var year = Math.floor(Math.imul/*here*/(4 , ((jdn - jOffset) / 1461)) + r / 365 - r / 1460);
+        var year = Math.imul(4, ((jdn - jOffset) / 1461)) + Math.floor(r / 365) - Math.floor(r / 1460);
+        
         var month = Math.floor(n/30 + 1);
         var dayOfMonth = Math.floor(n%30 + 1);
         var dayOfYear = Math.floor((Math.imul/*here*/((month - 1) , 30)) + dayOfMonth);
